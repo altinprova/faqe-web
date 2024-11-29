@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home</title>
+<meta name="description" content="Web design software for building responsive websites, perfect for beginners and professionals. It offers a wide range of tools to help you create stunning websites that work well on any device.">
+<meta name="generator" content="WYSIWYG Web Builder 19 - https://www.wysiwygwebbuilder.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="fontawesome6.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&700,400&display=swap" rel="stylesheet">
+<link href="Untitled3.css" rel="stylesheet">
+<link href="index.css" rel="stylesheet">
+<script src="jquery-3.7.1.min.js"></script>
+<script src="wb.overlay.min.js"></script>
+<script src="popper.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(event)
+{
+   var homeMenu_dropdownToggle = document.querySelectorAll('#homeMenu .dropdown-toggle');
+   homeMenu_dropdownToggle.forEach(item => 
+   {
+      var dropdown = new bootstrap.Dropdown(item, {popperConfig:{placement:item.getAttribute('data-bs-placement')}});
+   });
+   var homeMenu_dropdown = document.querySelectorAll('#homeMenu .dropdown');
+   homeMenu_dropdown.forEach(item => 
+   {
+      item.addEventListener('shown.bs.dropdown', function(e)
+      {
+         e.currentTarget.classList.add('show');
+      });
+      item.addEventListener('hidden.bs.dropdown', function(e)
+      {
+         e.currentTarget.classList.remove('show');
+      });
+   });
+   document.addEventListener('click', function (e)
+   {
+      var isChildOfDropdownMenu = false;
+      var target = e.target;
+      while (target !== null)
+      {
+         if (target.classList && target.classList.contains('homeMenu-navbar-collapse') && target.classList.contains('show'))
+         {
+            isChildOfDropdownMenu = true;
+            break;
+         }
+         target = target.parentNode;
+      }
+      if (isChildOfDropdownMenu)
+      {
+         if (e.target.tagName.toLowerCase() === 'a' && !e.target.classList.contains('dropdown-toggle'))
+         {
+            const dropdownMenu = document.querySelector('.homeMenu-navbar-collapse');
+            if (dropdownMenu)
+            {
+               const collapseInstance = bootstrap.Collapse.getInstance(dropdownMenu);
+               if (collapseInstance)
+               {
+                  collapseInstance.hide();
+               }
+            }
+         }
+      }
+   });
+   var homeCarousel = new bootstrap.Carousel('#homeCarousel', {interval: 3000, pause: false});
+});
+</script>
+<script>
+$(document).ready(function()
+{
+   $('#headerOverlayMenu-overlay').overlay({hideTransition:true});
+   $('#headerOverlayMenu').on('click', function(e)
+   {
+      $.overlay.toggle($('#headerOverlayMenu-overlay'));
+      return false;
+   });
+});
+</script>
+</head>
+<body class="wb-theme-content">
+<div id="wb_headerLayoutGrid" class="wb-theme-content">
+<div id="headerLayoutGrid">
+<div class="col-1">
+<div id="wb_headerHeading" style="display:block;width:100%;z-index:0;">
+<h2 id="headerHeading" class="wb-theme-header">WYSIWYG Web Builder</h2>
+</div>
+</div>
+<div class="col-2">
+<div id="wb_headerOverlayMenu" style="display:inline-block;width:46px;height:46px;z-index:1;">
+<a href="#" id="headerOverlayMenu" class="wb-theme-button" onclick="ShowObject('ToolTip1', 0);return true;return false;">
+<span class="line"></span>
+<span class="line">
+</span><span class="line"></span>
+</a>
+
+</div>
+</div>
+</div>
+</div>
+<div id="wb_homeLayoutGrid">
+<div id="homeLayoutGrid-overlay"></div>
+<div id="homeLayoutGrid">
+<div class="row">
+<div class="col-1">
+<div id="wb_homeMenu" style="display:block;width:100%;z-index:5;">
+<div id="homeMenu" class="homeMenu" style="width:100%;height:auto !important;">
+<div class="container">
+<a id="homeMenu-logo" href="#"><img alt="" title="" src="images/wysywyg_logo64.png"></a>
+<div class="navbar-header">
+<button title="" type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".homeMenu-navbar-collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
+<div class="homeMenu-navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="nav-item">
+<a href="./index.html" title="Home" class="nav-link">Home</a>
+</li>
+<li class="nav-item">
+<a href="./about.html" title="About" class="nav-link">About</a>
+</li>
+<li class="nav-item">
+<a href="./blog.html" title="Blog" class="nav-link">Blog</a>
+</li>
+<li class="nav-item">
+<a href="./contact.html" title="Contact" class="nav-link">Contact</a>
+</li>
+<li class="nav-item">
+<a href="./events.html" title="Events" class="nav-link">Events</a>
+</li>
+<li class="nav-item">
+<a href="./faq.html" title="FAQ" class="nav-link">FAQ</a>
+</li>
+<li class="nav-item">
+<a href="./photogallery.html" title="Photo Gallery" class="nav-link">Photo Gallery</a>
+</li>
+<li class="nav-item">
+<a href="./pricetable.html" title="Price Table" class="nav-link">Price Table</a>
+</li>
+<li class="nav-item">
+<a href="./products.html" title="Products" class="nav-link">Products</a>
+</li>
+<li class="nav-item">
+<a href="./portfolio.html" title="Portfolio" class="nav-link">Portfolio</a>
+</li>
+<li class="nav-item">
+<a href="./services.html" title="Services" class="nav-link">Services</a>
+</li>
+<li class="nav-item">
+<a href="./team.html" title="Team" class="nav-link">Team</a>
+</li>
+<li class="nav-item">
+<a href="./testimonials.html" title="Testimonials" class="nav-link">Testimonials</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="wb_homeCarousel" style="">
+<div id="homeCarousel" class="carousel slide" data-bs-ride="carousel">
+<ol class="carousel-indicators">
+<li data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active"></li>
+<li data-bs-target="#homeCarousel" data-bs-slide-to="1"></li>
+<li data-bs-target="#homeCarousel" data-bs-slide-to="2"></li>
+</ol>
+<div class="carousel-inner">
+<div class="carousel-item active">
+<div class="carousel-item-inner">
+<div id="wb_homeHeading1" style="display:block;width:100%;z-index:2;">
+<h3 id="homeHeading1">Your Gateway to Global Adventure.</h3>
+</div>
+</div>
+</div>
+<div class="carousel-item">
+<div class="carousel-item-inner">
+<div id="wb_homeHeading2" style="display:block;width:100%;z-index:3;">
+<h3 id="homeHeading2">Explore, Dream, Discover with Us.</h3>
+</div>
+</div>
+</div>
+<div class="carousel-item">
+<div class="carousel-item-inner">
+<div id="wb_homeHeading3" style="display:block;width:100%;z-index:4;">
+<h3 id="homeHeading3">Journey Beyond Borders with Ease.</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div id="wb_footer">
+<div id="footer">
+<div class="col-1">
+<div id="wb_footerCopyright">
+<span style="color:#FFFFFF;font-family:Arial;font-size:13px;">© Copyright 2024 WYSIWYG Web Builder</span>
+</div>
+</div>
+<div class="col-2">
+<div id="wb_footerImage" style="display:block;width:100%;height:auto;z-index:11;">
+<img src="images/wysywyg_logo64.png" id="footerImage" alt="" width="131" height="131">
+</div>
+</div>
+<div class="col-3">
+<div id="wb_footerMenu" style="display:block;width:100%;z-index:12;">
+<ul id="footerMenu" role="menubar" class="nav">
+<li role="menuitem" class="nav-item firstmain"><a class="nav-link" href="./index.html" target="_self" title="Home">Home</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./about.html" target="_self" title="About">About</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./blog.html" target="_self" title="Blog">Blog</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./contact.html" target="_self" title="Contact">Contact</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./events.html" target="_self" title="Events">Events</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./faq.html" target="_self" title="FAQ">FAQ</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./photogallery.html" target="_self" title="Photo Gallery">Photo&nbsp;Gallery</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./pricetable.html" target="_self" title="Price Table">Price&nbsp;Table</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./products.html" target="_self" title="Products">Products</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./portfolio.html" target="_self" title="Portfolio">Portfolio</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./services.html" target="_self" title="Services">Services</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./team.html" target="_self" title="Team">Team</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="./testimonials.html" target="_self" title="Testimonials">Testimonials</a>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+<div id="headerOverlayMenu-overlay">
+<div class="headerOverlayMenu">
+<ul class="drilldown-menu" role="menu">
+<li><a role="menuitem" href="./index.html" title="Home" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-home overlay-icon"></i>Home</a></li>
+<li><a role="menuitem" href="./about.html" title="About" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-regular fa-id-card overlay-icon"></i>About</a></li>
+<li><a role="menuitem" href="./blog.html" title="Blog" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-regular fa-newspaper overlay-icon"></i>Blog</a></li>
+<li><a role="menuitem" href="./contact.html" title="Contact" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-envelope overlay-icon"></i>Contact</a></li>
+<li><a role="menuitem" href="./events.html" title="Events" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-calendar-days overlay-icon"></i>Events</a></li>
+<li><a role="menuitem" href="./faq.html" title="FAQ" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-question overlay-icon"></i>FAQ</a></li>
+<li><a role="menuitem" href="./photogallery.html" title="Photo Gallery" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-regular fa-image overlay-icon"></i>Photo&nbsp;Gallery</a></li>
+<li><a role="menuitem" href="./pricetable.html" title="Price Table" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-dollar-sign overlay-icon"></i>Price&nbsp;Table</a></li>
+<li><a role="menuitem" href="./products.html" title="Products" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-tag overlay-icon"></i>Products</a></li>
+<li><a role="menuitem" href="./portfolio.html" title="Portfolio" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-regular fa-file-image overlay-icon"></i>Portfolio</a></li>
+<li><a role="menuitem" href="./services.html" title="Services" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-gears overlay-icon"></i>Services</a></li>
+<li><a role="menuitem" href="./team.html" title="Team" class="headerOverlayMenu-effect wb-theme-button">Team</a></li>
+<li><a role="menuitem" href="./testimonials.html" title="Testimonials" class="headerOverlayMenu-effect wb-theme-button"><i class="fa fa-comments overlay-icon"></i>Testimonials</a></li>
+   </ul>
+</div>
+<a class="close-button" id="headerOverlayMenu-close" href="#" role="button" aria-hidden="true"><span></span></a>
+</div>
+</body>
+</html>
